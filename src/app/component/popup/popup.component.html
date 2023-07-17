@@ -1,0 +1,23 @@
+<form [formGroup]="myform" (ngSubmit)="Saveuser()">
+  <h1 mat-dialog-title>{{ inputdata.title }}</h1>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>titre</mat-label>
+      <input formControlName="titre" matInput>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="Description">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Type:</mat-label>
+      <select formControlName="type" matNativeControl>
+        <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+      </select>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button type="submit" color="primary">Save</button>
+    <a (click)="closepopup()" mat-raised-button color="warn">Close</a>
+  </div>
+</form>
